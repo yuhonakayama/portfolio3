@@ -100,31 +100,48 @@ main {
   height: auto;
 }
 
+.mv-background-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.building-img {
+  position: absolute;
+  bottom: 10%;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
 .HP-img {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) translate(-220%, -100%);
+  transform: translate(-50%, -50%) translate(-220%, 0);
   width: 15%;
   max-width: 300px;
+  z-index: 2;
 }
 
 .code-img {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) translate(220%, -160%);
+  transform: translate(-50%, -50%) translate(220%, -60%);
   width: 15%;
   max-width: 300px;
+  z-index: 2;
 }
 
 .design-img {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) translate(220%, 0);
+  transform: translate(-50%, -50%) translate(220%, 100%);
   width: 15%;
   max-width: 300px;
+  z-index: 2;
 }
 
 .mv-container {
@@ -138,11 +155,14 @@ main {
 .mv-container > h1 {
   font-size: 4rem;
   padding-bottom: 5%;
+  z-index: 3;
 }
 
 .mv-img {
-  width: 80%;
+  width: 45%;
+  max-width: 1200px;
   height: auto;
+  z-index: 3;
 }
 
 .mv-message-container {
@@ -160,7 +180,7 @@ main {
   transform: translate(-25%, -50%);
   display: flex;
   justify-content: flex-start;
-  text-align: center;
+  text-align: left;
   padding: 0;
 }
 
@@ -174,7 +194,7 @@ main {
 
 .message > p {
   position: relative;
-  z-index: 1; /* p要素を最前面に配置 */
+  z-index: 10; /* p要素を最前面に配置 */
 }
 
 /* 参考作品 */
