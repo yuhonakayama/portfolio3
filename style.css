@@ -156,13 +156,14 @@ main {
   font-size: 4rem;
   padding-bottom: 5%;
   z-index: 3;
+  display: none;
 }
 
 .mv-img {
   width: 45%;
   max-width: 1200px;
   height: auto;
-  z-index: 3;
+  z-index: 4;
 }
 
 .mv-message-container {
@@ -339,6 +340,7 @@ main {
   left: 450px;
   height: 8%;
 }
+
 .skills-parent-container {
   display: flex;
   justify-content: space-around;
