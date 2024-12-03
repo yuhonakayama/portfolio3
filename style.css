@@ -122,6 +122,7 @@ main {
   width: 15%;
   max-width: 300px;
   z-index: 2;
+  display: none;
 }
 
 .code-img {
@@ -132,6 +133,7 @@ main {
   width: 15%;
   max-width: 300px;
   z-index: 2;
+  display: none;
 }
 
 .design-img {
@@ -142,6 +144,7 @@ main {
   width: 15%;
   max-width: 300px;
   z-index: 2;
+  display: none;
 }
 
 .mv-container {
@@ -156,7 +159,32 @@ main {
   font-size: 4rem;
   padding-bottom: 5%;
   z-index: 3;
-  display: none;
+  opacity: 0; /* 初期状態で非表示 */
+  transform: translateY(50px); /* 初期位置を少し下げる */
+  transition: opacity 0.5s ease;
+}
+
+.mv-container h1.bounce {
+  font-size: 4rem;
+  padding-bottom: 5%;
+  z-index: 3;
+  opacity: 1; /* 表示 */
+  animation: bounce 0.8s ease forwards; /* 跳ねるアニメーション */
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(50px);
+  }
+  50% {
+    transform: translateY(-20px); /* 上に跳ねる */
+  }
+  70% {
+    transform: translateY(10px); /* 少し戻る */
+  }
+  100% {
+    transform: translateY(0); /* 最終位置 */
+  }
 }
 
 .mv-img {
@@ -213,6 +241,7 @@ main {
 #reference-works > h2 {
   margin: 10% 50px 50px 50px;
   z-index: 12;
+  display: none;
 }
 
 .croud-img {
