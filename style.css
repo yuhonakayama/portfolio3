@@ -6,7 +6,7 @@
 }
 
 html, body {
-  height: 100%;
+  height: auto;
   margin: 0;
   padding: 0;
   overflow-x: hidden; /* 横スクロールを防止 */
@@ -35,6 +35,11 @@ p {
 
 h2 {
   font-size: 3em;
+}
+
+.section-title {
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 /* 横幅設定 */
@@ -238,10 +243,15 @@ main {
  background: linear-gradient(to bottom, #71A5FB, white);
 }
 
-#reference-works > h2 {
+.title-fade-in {
   margin: 10% 50px 50px 50px;
   z-index: 12;
-  display: none;
+  transform: translateY(0);
+}
+
+.title-fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .croud-img {
@@ -307,6 +317,14 @@ main {
 
 .works-img {
   width: 100%;
+  transition: transform 0.3s ease, z-index 0.3s ease;
+  position: relative;
+}
+
+.works-img:hover {
+  transform: scale(1.05); /* 拡大 */
+  z-index: 12; /* 前面に出す */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* 影を追加 */
 }
 
 .works > p {
@@ -339,6 +357,15 @@ main {
   left: 480px;
   width: 180px;
   height: 100px;
+}
+
+.title-slide-in {
+  transform: translateY(20px);
+}
+
+.title-slide-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 #skills > h2 {  
@@ -456,6 +483,17 @@ main {
   min-width: 250px;
 }
 
+.title-slide-in-beside {
+  opacity: 0; /* 初期状態で非表示 */
+  transform: translateX(100px);
+  transition: transform 0.5s ease, opacity 0.5s ease; /* スムーズなアニメーション */
+}
+
+.title-slide-in-beside.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 .roud-img {
   position: absolute;
   top: 50%;
@@ -566,12 +604,17 @@ main {
   height: 60%;
 }
 
-.contact-title-container > h2 {
+.title-fade-in2 {
   position: absolute;
   top: 60%;
   left: 50%;
   transform: translate(-50%, -60%);
   z-index: 92;
+}
+
+.title-fade-in2.visible {
+  opacity: 1;
+  transform: translate(-50%, -60%);
 }
 
 .sign-holder-img {
