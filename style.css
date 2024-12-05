@@ -331,8 +331,21 @@ main {
   font-size: 14px;
 }
 
-.falling-person-img {
-  width: 80%;
+.croud2-img {
+  width: 90%;
+}
+
+.falling-down {
+  width: 20%; 
+  position: relative; /* 必要に応じて適宜設定 */
+  transform: translateY(-2000%); /* 画面の外（上）に配置 */
+  opacity: 0; /* 見えない状態に */
+  transition: transform 3s ease-out, opacity 0.5s ease-out; /* アニメーション効果 */
+}
+
+.falling-down.active {
+  transform: translateY(0); /* 元の位置に移動 */
+  opacity: 1; /* 表示 */
 }
 
 /* スキル */
