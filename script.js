@@ -78,9 +78,21 @@ $(function () {
         element.classList.add("active");
       }
     });
-    
 
+    document.addEventListener("scroll", function () {
+      const elements = document.querySelectorAll(".falling-pieces");
+      const windowHeight = window.innerHeight;
+      
+      elements.forEach((element) => {
+        const rect = element.getBoundingClientRect();
+
+      // 要素が画面の下から 500px の範囲に入ったらスライドイン
+      if (rect.top < windowHeight - 500) {
+        element.classList.add("active");
+        }
+      });
+    });
+  
 });
-
       
     

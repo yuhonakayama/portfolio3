@@ -39,7 +39,7 @@ h2 {
 
 .section-title {
   opacity: 0;
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 1.5s ease, transform 0.8s ease;
 }
 
 /* 横幅設定 */
@@ -298,6 +298,17 @@ main {
   transform: rotate(45deg);
 }
 
+.falling-pieces {
+  transform: translateY(-2000%); /* 画面の外（上）に配置 */
+  opacity: 0; /* 見えない状態に */
+  transition: transform 3s ease-out, opacity 0.5s ease-out; /* アニメーション効果 */
+}
+
+.falling-pieces.active {
+  transform: translateY(0); /* 元の位置に移動 */
+  opacity: 1; /* 表示 */
+}
+
 .works-parent-container {
   display: flex;
   justify-content: space-around;
@@ -319,6 +330,7 @@ main {
   width: 100%;
   transition: transform 0.3s ease, z-index 0.3s ease;
   position: relative;
+  z-index: 12;
 }
 
 .works-img:hover {
@@ -346,6 +358,7 @@ main {
 .falling-down.active {
   transform: translateY(0); /* 元の位置に移動 */
   opacity: 1; /* 表示 */
+  z-index: 13;
 }
 
 /* スキル */
