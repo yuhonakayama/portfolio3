@@ -57,6 +57,7 @@ header {
   align-items: center;
   margin: 10px auto;
   width: 100vw;
+  z-index: 6;
 }
 
 .title-logo {
