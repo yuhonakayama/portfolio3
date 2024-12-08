@@ -27,7 +27,7 @@ $(function () {
           const scrollTop = $(window).scrollTop();
           const windowHeight = $(window).height();
     
-          if (scrollTop + windowHeight > elementTop + 100) {
+          if (scrollTop + windowHeight > elementTop + 300) {
             $(this).addClass('visible');
           }        
         });
@@ -38,7 +38,7 @@ $(function () {
           const scrollTop = $(window).scrollTop();
           const windowHeight = $(window).height();
 
-          if (scrollTop + windowHeight > elementTop + 100) {
+          if (scrollTop + windowHeight > elementTop + 300) {
             $(this).addClass('visible');
           }
         });
@@ -49,7 +49,7 @@ $(function () {
           const scrollTop = $(window).scrollTop();
           const windowHeight = $(window).height();
 
-          if (scrollTop + windowHeight > elementTop + 100) {
+          if (scrollTop + windowHeight > elementTop + 300) {
             $(this).addClass('visible');
           }
         });
@@ -60,7 +60,7 @@ $(function () {
           const scrollTop = $(window).scrollTop();
           const windowHeight = $(window).height();
     
-          if (scrollTop + windowHeight > elementTop + 100) {
+          if (scrollTop + windowHeight > elementTop + 200) {
             $(this).addClass('visible');
           }        
         });
@@ -80,7 +80,7 @@ $(function () {
     });
 
     document.addEventListener("scroll", function () {
-      const elements = document.querySelectorAll(".falling-pieces");
+      const elements = document.querySelectorAll(".falling");
       const windowHeight = window.innerHeight;
       
       elements.forEach((element) => {
@@ -92,7 +92,39 @@ $(function () {
         }
       });
     });
-  
+
+
+    // 登頂者をクリックで旗を表示
+    document.querySelector(".climber-img").addEventListener("click", function () {
+      const element = document.querySelector(".flag-img");
+      element.style.display = "block"; // または "flex", "inline" など必要な値に変更
+    });
+    
+
+    // 登山者のアニメーション
+    document.querySelector(".mountaineers-img").addEventListener("click", function () {
+      const box = document.querySelector(".mountaineers-img");
+    
+      // 一度アニメーションを適用
+      box.style.animation = "drop-and-rise 1.5s ease-in-out";
+    
+      // アニメーションが終わったらリセットする（再利用のため）
+      box.addEventListener("animationend", () => {
+        box.style.animation = ""; // アニメーションプロパティをリセット
+      });
+    });
+    
+      // 指さす人をクリックでセリフを表示
+      document.querySelector(".pointing-img").addEventListener("click", function () {
+        const element = document.querySelector(".serif-img");
+
+        // 現在の表示状態をチェックしてトグル
+        if (element.style.display === "block") {
+          element.style.display = "none"; // 非表示にする
+        } else {
+          element.style.display = "block"; // 表示する
+        }
+      });
 });
       
     

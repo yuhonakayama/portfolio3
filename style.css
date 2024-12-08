@@ -298,13 +298,13 @@ main {
   transform: rotate(45deg);
 }
 
-.falling-pieces {
-  transform: translateY(-2000%); /* 画面の外（上）に配置 */
+.falling {
+  transform: translateY(-100vh); /* 画面の外（上）に配置 */
   opacity: 0; /* 見えない状態に */
   transition: transform 3s ease-out, opacity 0.5s ease-out; /* アニメーション効果 */
 }
 
-.falling-pieces.active {
+.falling.active {
   transform: translateY(0); /* 元の位置に移動 */
   opacity: 1; /* 表示 */
 }
@@ -541,6 +541,19 @@ main {
   bottom: 100%;
   left: 10%;
   height: 14%;
+  transition: transform 0.3s ease, z-index 0.3s ease;
+}
+
+.climber-img:hover {
+  transform: scale(1.2); /* 拡大 */
+}
+
+.flag-img {
+  position: absolute;
+  bottom: 100%;
+  left: 15%;
+  height: 14%;
+  display: none;
 }
 
 .mountaineers-img {
@@ -548,20 +561,54 @@ main {
   top: 1%;
   left: -7%;
   height: 25%;
+  transition: all 0.3s ease;
 }
 
-/* .birds-img {
-  position: absolute;
-  top: -30%;
-  right: 30%;
-  width: 15%;
-} */
+@keyframes drop-and-rise {
+  0% {
+    top: 1%; /* 初期位置 */
+  }
+  10% {
+    top: 40%; /* 一気に下に降りる */
+  }
+  100% {
+    top: 1%; /* ゆっくり元に戻る */
+  }
+}
+
+.mountaineers-img:hover {
+  transform: scale(1.2); /* 拡大 */
+}
+
 
 .parachute-img {
   position: absolute;
   top: -40%;
   right: 20%;
   height: 30%;
+  animation: sway 2s infinite ease-in-out;
+}
+
+/* 滑らかな左右＆縦揺れアニメーション */
+@keyframes sway {
+  0% {
+    transform: translate(-50%, 0) rotate(0deg);
+  }
+  20% {
+    transform: translate(-55%, 5px) rotate(-5deg);
+  }
+  40% {
+    transform: translate(-60%, 10px) rotate(5deg);
+  }
+  60% {
+    transform: translate(-55%, 15px) rotate(-3deg);
+  }
+  80% {
+    transform: translate(-50%, 10px) rotate(3deg);
+  }
+  100% {
+    transform: translate(-50%, 5px) rotate(0deg);
+  }
 }
 
 .about-text {
@@ -579,13 +626,43 @@ main {
   bottom: -5px;
   right: 10%;
   width: 15%;
+  animation: slide-horizontal 5s infinite ease-in-out;
+}
+
+/* 左右にゆっくり往復するアニメーション */
+@keyframes slide-horizontal {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 .dancing-people-img {
   position: absolute;
-  bottom: -5px;
+  bottom: 0;
   left: 10%;
   width: 5%;
+  transform-origin: top center; /* 回転の基準点を上部中央に設定 */
+  transform: rotate(0deg);
+  animation: swing 2s infinite ease-in-out;
+}
+
+/* 振り子のように揺れるアニメーション */
+@keyframes swing {
+  0% {
+    transform: rotate(-5deg); /* 左へ5度 */
+  }
+  50% {
+    transform: rotate(5deg); /* 右へ5度 */
+  }
+  100% {
+    transform: rotate(-5deg); /* 左へ戻る */
+  }
 }
 
 /* お問い合わせ*/
@@ -595,7 +672,6 @@ main {
   width: 100vw;
   margin: 0;
   padding: 0;
-  z-index: 89;
 }
 
 .contact-case {
@@ -607,6 +683,7 @@ main {
   background-color: rgb(249, 181, 52);
   height: 100%;
   width: 100vw;
+  z-index: 89;
 }
 
 .contact-parent-container {
@@ -691,7 +768,25 @@ main {
 
 .pointing-img {
   position: absolute;
-  bottom: 0;
+  bottom: 2%;
   left: 8%;
   height: 40%;
+  transition: transform 0.3s ease, z-index 0.3s ease;
+  will-change: transform;
+  transform-origin: center center; /* 拡大の基準を中央に設定 */
+  z-index: 99;
+}
+
+.pointing-img:hover {
+  transform: scale(1.1); /* 拡大 */
+}
+
+.serif-img {
+  position: absolute;
+  bottom: 20%;
+  left: 4%;
+  height: 170%;
+  transition: transform 0.3s ease, z-index 0.3s ease;
+  z-index: 100;
+  display: none;
 }
