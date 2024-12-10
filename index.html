@@ -18,6 +18,7 @@
   <header>
     <!-- ロゴ -->
     <a href="index.html" class="title-logo">yuho design</a>
+
     <!-- PC用ナビゲーション -->
      <nav class="nav-pc">
       <a href="#reference-works">参考作品</a>
@@ -25,12 +26,33 @@
       <a href="#about">私について</a>
       <a href="#contact">お問い合わせ</a>
      </nav>
+
+     <!-- スマホ用メニューボタン -->
+      <img class="menu-sp" src="image/nav/menu-up.png" alt="ナビゲーションを開く" onclick="document.querySelector('.nav-sp').style.display = 'block'">
+
+    <!-- スマホ用ナビゲーション -->
+    <nav class="nav-sp">
+      <img class="close" src="image/nav/close.png" alt="ナビゲーションを閉じる" onclick="document.querySelector('.nav-sp').style.display = 'none'">
+      <a class="logo-sp" href="index.html" onclick="document.querySelector('.nav-sp').style.display = 'none'">yuho design</a>
+      <hr>
+      <a class="menu" href="#reference-works" onclick="document.querySelector('.nav-sp').style.display = 'none'">参考作品</a>
+      <hr>
+      <a class="menu" href="#skills" onclick="document.querySelector('.nav-sp').style.display = 'none'">スキル</a>
+      <hr>
+      <a class="menu" href="#about" onclick="document.querySelector('.nav-sp').style.display = 'none'">私について</a>
+      <hr>
+      <a class="menu" href="#contact" onclick="document.querySelector('.nav-sp').style.display = 'none'">お問い合わせ</a>
+      <hr>
+      <div class="nav-sns">
+      <img src="image/nav/nav-sp-x.png" class="x-img menu-sp-sns" alt="X">
+      </div>
+    </nav>
+    
   </header>
   <main>
     <!-- mv -->
      <section id="mv">
       <div class="mv-background-container">
-        <img src="image/mv/building.png" class="building-img" alt="ビル群">
         <img src="image/mv/HP.png" class="HP-img" alt="ホームページ">
         <img src="image/mv/code.png" class="code-img" alt="コード">
         <img src="image/mv/design.png" class="design-img" alt="デザイン">
@@ -38,19 +60,26 @@
           <h1>\  Which piece do you need?  /</h1>
           <img src="image/mv/mv2.png" class="mv-img" alt="メインビジュアル">
         </div>
+        <img src="image/mv/building.png" class="building-img" alt="ビル群">
       </div>
         <div class="mv-message-container">
           <div class="message">
             <p>
-              パズルのピースを探すように、作るべきものをイメージしながら慎重に
+              パズルのピースを探すように、<br class="br-sp">
+              <br class="br-sp">
+              作るべきものをイメージしながら慎重に
               <br>
               <br>
-              例えばそれが真っ白な絵でも正しい答えは確かにあるはずだから<br>
+              例えばそれが真っ白な絵でも<br class="br-sp">
+              <br class="br-sp">
+              正しい答えは確かにあるはずだから<br>
               <br>
               <br>
               <br>
               <br>
-              パズルのピースを埋めるように、1つ1つ思いを込めて丁寧に
+              パズルのピースを埋めるように、<br class="br-sp">
+              <br class="br-sp">
+              1つ1つ思いを込めて丁寧に
               <br>
               <br>
               その積み重ねが未来の形を作っていくから
@@ -64,40 +93,50 @@
      
     <!-- 参考作品 -->
      <section id="reference-works">
-      <img src="image/reference-works/croud.png" class="croud-img" alt="雲">
+      <img src="image/reference-works/cloud.png" class="cloud-img" alt="雲">
       <img src="image/reference-works/plane.png" class="plane-img" alt="飛行機">
       <img src="image/reference-works/1.png" class="onepiece falling" alt="1つのピース">
       <img src="image/reference-works/2.png" class="twopieces falling" alt="2つのピース">
       <img src="image/reference-works/3.png" class="threepieces falling" alt="3つのピース">
       <h2 class="section-title title-fade-in">reference works</h2>
       <div class="works-parent-container">
-      <div class="works">
+      <!-- <div class="works">
+        <a href="works1/index.html">
         <img src="image/reference-works/works1.jpg" class="works-img" alt="socialtech">
         <h3>コーポレートサイト</h3>
         <p>HTML/CSS/JavaScript/レスポンシブ対応</p>
+        </a>
       </div>
       <div class="works">
+        <a href="works1/index.html">
         <img src="image/reference-works/works1.jpg" class="works-img" alt="socialtech">
         <h3>コーポレートサイト</h3>
         <p>HTML/CSS/JavaScript/レスポンシブ対応</p>
+        </a>
       </div>
       <div class="works">
+        <a href="works1/index.html">
         <img src="image/reference-works/works1.jpg" class="works-img" alt="socialtech">
         <h3>コーポレートサイト</h3>
         <p>HTML/CSS/JavaScript/レスポンシブ対応</p>
-      </div>
+        </a>
+      </div> -->
       <div class="works">
+        <a href="works1/index.html">
         <img src="image/reference-works/works1.jpg" class="works-img" alt="socialtech">
         <h3>コーポレートサイト</h3>
         <p>HTML/CSS/JavaScript/レスポンシブ対応</p>
+        </a>
       </div>
       <div class="works">
+        <a href="works1/index.html">
         <img src="image/reference-works/works1.jpg" class="works-img" alt="socialtech">
         <h3>コーポレートサイト</h3>
         <p>HTML/CSS/JavaScript/レスポンシブ対応</p>
+        </a>
       </div>
-      <div class="works">
-        <img src="image/reference-works/croud2.png" class="croud2-img" alt="落ちている人">
+      <div class="works cloud-and-people">
+        <img src="image/reference-works/cloud2.png" class="cloud2-img" alt="落ちている人">
         <img src="image/reference-works/falling-person.png" class="falling-person-img falling-down" alt="落ちている人"> 
       </div>
       </div>
@@ -105,6 +144,7 @@
 
      <!-- スキル -->
      <section id="skills">
+      <div class="skills-box">
         <div class="skills-title-container section-title title-slide-in">
           <h2>skills</h2>
           <img src="image/skills/speech-bubble.png" class="speech-bubble-img" alt="吹き出し">
@@ -119,6 +159,7 @@
           <img src="image/skills/figma.png" class="skills-img four-convex-img" alt="figma">
           <img src="image/skills/WP.png" class="skills-img two-convex-img" alt="WordPress">
         </div>
+      </div>
      </section>
 
      <!-- 私について -->
@@ -139,13 +180,11 @@
             <p>
               長崎県在住の2児の母。<br>
               <br>
-              2024年よりフリーランスとしてWeb制作を行っております。<br>
-              <!-- <br> -->
-              ホームページ・ランディングページのデザイン、コーディング、<br>
-              レスポンシブ対応が可能です。<br>
+              日々育児に奮闘しながらも2024年7月よりWEB制作の学習を開始し、現在はフリーランスとして活動しております。<br>
               <br>
-              クライアント様に寄り添ったWebサイトを低予算でお作りします。<br>
-              お気軽にお問合せください。
+              WEB制作を通じて「 『つくる』って楽しい！ 」を実感中。<br>
+              <br>
+              これからも新しいことをどんどん吸収し、クライアント様に価値あるものを提供できるよう努めてまいります。
             </p>
           </div>
         </div>
@@ -164,10 +203,7 @@
             </div>
             <div class="contact-container">
               <p>お問い合わせはメール、またはSNSでお願いします。</p>
-              <div class="sns">
-                <img src="image/contact/Instagram.jpg" class="instagram-img" alt="インスタグラム">
-                <img src="image/contact/x.jpg" class="x-img" alt="X">
-              </div>
+              <img src="image/contact/x.jpg" class="x-img" alt="X">
             </div>
           </div>
           <img src="image/contact/handshake.png" class="handshake-img" alt="握手">
