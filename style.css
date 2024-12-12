@@ -10,6 +10,7 @@ html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden; /* 横スクロールを防止 */
+  color: #494949;
 }
 
 body {
@@ -19,12 +20,14 @@ body {
   font-style: normal;
   box-sizing: border-box;
   position: relative;
+  color: #494949;
 }
 
 h1, h2 {
   font-family: "Poor Story", system-ui;
   font-weight: 400;
   font-style: normal;
+  color: #494949;
   }
 
 p {
@@ -63,7 +66,7 @@ header {
 .title-logo {
   margin-left: 50px;
   font-size: 30px;
-  color: #000;
+  color: #494949;
   text-decoration: none;
 }
 
@@ -78,7 +81,7 @@ header {
 .nav-pc > a {
   margin-left: 30px;
   font-size: 16px;
-  color: #000;
+  color: #494949;
   text-decoration: none;
 }
 
@@ -351,12 +354,12 @@ main {
 }
 
 .works > a {
-  color: #000;
+  color: #494949;
   text-decoration: none;
 }
 
 .works > a:hover {
-  color: #000;
+  color: #494949;
   text-decoration: underline;
 }
 
@@ -414,8 +417,6 @@ main {
 }
 
 .title-slide-in {
-  opacity: 0;
-  transition: opacity 1.5s ease, transform 0.8s ease;
   transform: translateY(20px);
 }
 
@@ -543,9 +544,7 @@ main {
 }
 
 .title-slide-in-beside {
-  opacity: 0; /* 初期状態で非表示 */
   transform: translateX(100px);
-  transition: transform 0.5s ease, opacity 0.5s ease; /* スムーズなアニメーション */
 }
 
 .title-slide-in-beside.visible {
@@ -773,17 +772,35 @@ main {
   z-index: 95;
 }
 
-.sns {
-  margin-top: 15px;
+.icon-container {
+  display: flex; /* 横並びにする */
+  justify-content: center; /* 水平方向で中央揃え */
+  gap: 10%; /* 要素間のスペースを設定 */
+  padding-top: 5%;
 }
 
-.sns > img {
+.mail-p {
+  display: flex;
+  align-items: center; /* 垂直方向に中央揃え */
+  justify-content: center; /* 水平方向に中央揃え */
+  gap: 8px; /* 文字と画像の間のスペース */
+}
+
+.mail-img {
+  display: block; /* imgの余計な隙間を防ぐ */
   width: 40px;
-  margin: 10px;
+}
+
+.sns-p {
+  display: flex;
+  align-items: center; /* 垂直方向に中央揃え */
+  justify-content: center; /* 水平方向に中央揃え */
+  gap: 8px; /* 文字と画像の間のスペース */
 }
 
 .x-img {
-  width: 35px;
+  display: block;
+  width: 30px;
 }
 
 .handshake-img {
@@ -828,6 +845,117 @@ main {
   display: none;
 }
 
+/* お問い合わせフォーム */
+#form-main {
+  position: relative;
+  padding-top: 5%;
+  width: 100vw;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.form-container {
+  display: flex;
+}
+
+#form {
+  padding-bottom: 10%;
+}
+
+#form > h2 {
+  font-size: 2rem;
+  margin: 40px auto;
+}
+
+#form > p {
+  margin-bottom: 30px;
+}
+
+/* 外枠 */
+#form > div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-bottom: 30px;
+}
+
+/* 左列の見出し */
+.contact-heading {
+  width: 240px;
+  align-self: center;
+}
+
+/* 見出しのラベル */
+.contact-label {
+  font-weight: bold;
+}
+
+/* 必須 */
+.contact-span {
+  color: #ce2222;
+  margin-left: 20px;
+  font-weight: bold;
+}
+
+/* テキストボックス */
+.contact-textbox {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom-width: 1px;
+  border-bottom-color: #707070;
+  border-bottom-style: solid;
+  background-color: #fafafa;
+  width: 400px;
+  height: 56px;
+}
+
+/* お問い合わせ内容のテキストエリア */
+.contact-textarea {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom-width: 1px;
+  border-bottom-color: #707070;
+  border-bottom-style: solid;
+  background-color: #fafafa;
+  width:400px;
+  height:200px;
+}
+
+.submitButton {
+  position: absolute;
+  bottom: 7%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 50px;
+  background-size: contain;
+  background-position: center;
+  background-color: #fff;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  border: none;
+}
+
+.submitButton:disabled {
+  background-image: url('image/contact/cant-send.png'); 
+  cursor: not-allowed;
+}
+
+.submitButton:enabled {
+  background-image: url('image/contact/send.png'); 
+  cursor: pointer;
+}
+
+.working-woman-img {
+  position: absolute;
+  bottom: 0;
+  right: 10%;
+  width: 10%;
+}
+
 }
 
 /* =====================
@@ -863,13 +991,13 @@ main {
 
   /* タイトルロゴ */
   .title-logo {
-    color: #000;
+    color: #494949;
     text-decoration: none;
     margin: 10px;
   }
 
   .title-logo:focus {
-    color: #000;
+    color: #494949;
     text-decoration: underline;
   }
 
@@ -905,7 +1033,7 @@ main {
     display: block;
     margin: 80px 0 50px 20px;
     font-size: 1.5rem;
-    color: black;
+    color: #494949;
     text-decoration: none;
     text-align: left;
   }
@@ -934,17 +1062,17 @@ main {
   }
 
   .menu:link {
-    color: #000;
+    color: #494949;
     text-decoration: none;
   }
 
   .menu:visited {
-    color: #000;
+    color: #494949;
     text-decoration: none;
   }
 
   .menu:focus{
-    color: #000;
+    color: #494949;
     text-decoration: underline;
   }
 
@@ -1192,12 +1320,12 @@ main {
 }
 
 .works > a {
-  color: #000;
+  color: #494949;
   text-decoration: none;
 }
 
 .works > a:hover {
-  color: #000;
+  color: #494949;
   text-decoration: underline;
 }
 
@@ -1591,7 +1719,7 @@ main {
   border-radius: 20px 0 0 0 ;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   background-color: #fff;
   width: 60vw;
   height: 70%;
@@ -1640,9 +1768,40 @@ main {
   font-size: 0.8rem;
 }
 
+.icon-container {
+  display: block; /* 横並びにする */
+  justify-content: space-between; /* 水平方向で中央揃え */
+  text-align: right;
+  gap: 10%; /* 要素間のスペースを設定 */
+  padding-top: 15%;
+  height: 2rem;
+}
+
+.mail-p {
+  display: flex;
+  align-items: center; /* 垂直方向に中央揃え */
+  justify-content: center; /* 水平方向に中央揃え */
+  gap: 8px; /* 文字と画像の間のスペース */
+  font-size: 0.8rem;
+  padding-bottom: 5%;
+}
+
+.mail-img {
+  display: block; /* imgの余計な隙間を防ぐ */
+  width: 20px;
+}
+
+.sns-p {
+  display: flex;
+  align-items: center; /* 垂直方向に中央揃え */
+  justify-content: center; /* 水平方向に中央揃え */
+  gap: 8px; /* 文字と画像の間のスペース */
+  font-size: 0.8rem;
+}
+
 .x-img {
-  width: 10%;
-  margin: 10%;
+  display: block;
+  width: 15px;
 }
 
 .handshake-img {
@@ -1679,6 +1838,119 @@ main {
   transition: transform 0.3s ease, z-index 0.3s ease;
   z-index: 100;
   display: none;
+}
+
+/* お問い合わせフォーム */
+#form-main {
+  position: relative;
+  padding: 5% 5% 15% 5%;
+  width: 100vw;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.form-container {
+  display: flex;
+}
+
+#form {
+  width: 100%;
+  height: auto;
+}
+
+#form > h2 {
+  font-size: 2rem;
+  margin: 40px auto;
+}
+
+#form > p {
+  margin-bottom: 30px;
+}
+
+/* 外枠 */
+#form > div {
+  display: block;
+  /* flex-direction: row;
+  flex-wrap: wrap; */
+  padding-bottom: 30px;
+}
+
+/* 左列の見出し */
+.contact-heading {
+  width: 240px;
+  align-self: center;
+}
+
+/* 見出しのラベル */
+.contact-label {
+  font-weight: bold;
+}
+
+/* 必須 */
+.contact-span {
+  color: #ce2222;
+  margin-left: 20px;
+  font-weight: bold;
+}
+
+/* テキストボックス */
+.contact-textbox {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom-width: 1px;
+  border-bottom-color: #707070;
+  border-bottom-style: solid;
+  background-color: #fafafa;
+  width: 90vw;
+  height: 56px;
+}
+
+/* お問い合わせ内容のテキストエリア */
+.contact-textarea {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom-width: 1px;
+  border-bottom-color: #707070;
+  border-bottom-style: solid;
+  background-color: #fafafa;
+  width:90vw;
+  height:200px;
+}
+
+.submitButton {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 50px;
+  background-size: contain;
+  background-position: center;
+  background-color: #fff;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  border: none;
+}
+
+.submitButton:disabled {
+  background-image: url('image/contact/cant-send.png'); 
+  cursor: not-allowed;
+}
+
+.submitButton:enabled {
+  background-image: url('image/contact/send.png'); 
+  cursor: pointer;
+}
+
+.working-woman-img {
+  position: absolute;
+  bottom: -20%;
+  left:50%;
+  transform: translateX(-50%);
+  height: 15%;
 }
 
 }
