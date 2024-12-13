@@ -18,9 +18,7 @@ body {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  box-sizing: border-box;
   position: relative;
-  color: #494949;
 }
 
 h1, h2 {
@@ -119,6 +117,7 @@ main {
   position: relative;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 }
 
 .building-img {
@@ -963,8 +962,10 @@ main {
 =======================*/
 @media screen and (max-width: 767px) {
   body {
-    min-width: 375px;
+    width: 100vw;
+    min-width: 320px;
     margin: 0;
+    padding: 0;
   }
 
   header {
@@ -1097,15 +1098,15 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
   height: 100vh;
 }
 
 .building-img {
   position: absolute;
   bottom: 5%;
-  /* width: 100vw; */
-  height: 25%;
+  width: 100%;
+  min-width: 100vw;
+  height: auto;
   overflow: hidden;
   z-index: 1;
 }
