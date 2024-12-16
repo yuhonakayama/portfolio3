@@ -27,7 +27,7 @@ $(function () {
           const scrollTop = $(window).scrollTop();
           const windowHeight = $(window).height();
     
-          if (scrollTop + windowHeight > elementTop + 300) {
+          if (scrollTop + windowHeight > elementTop + 100) {
             $(this).addClass('visible');
           }        
         });
@@ -38,7 +38,7 @@ $(function () {
           const scrollTop = $(window).scrollTop();
           const windowHeight = $(window).height();
 
-          if (scrollTop + windowHeight > elementTop + 300) {
+          if (scrollTop + windowHeight > elementTop + 100) {
             $(this).addClass('visible');
           }
         });
@@ -49,7 +49,7 @@ $(function () {
           const scrollTop = $(window).scrollTop();
           const windowHeight = $(window).height();
 
-          if (scrollTop + windowHeight > elementTop + 300) {
+          if (scrollTop + windowHeight > elementTop + 100) {
             $(this).addClass('visible');
           }
         });
@@ -60,7 +60,7 @@ $(function () {
           const scrollTop = $(window).scrollTop();
           const windowHeight = $(window).height();
     
-          if (scrollTop + windowHeight > elementTop + 200) {
+          if (scrollTop + windowHeight > elementTop + 100) {
             $(this).addClass('visible');
           }        
         });
@@ -74,7 +74,7 @@ $(function () {
       const windowHeight = window.innerHeight;
     
       // 要素が画面の下から 500px の範囲に入ったらスライドイン
-      if (rect.top < windowHeight - 500) {
+      if (rect.top < windowHeight - 100) {
         element.classList.add("active");
       }
     });
@@ -87,7 +87,7 @@ $(function () {
         const rect = element.getBoundingClientRect();
 
       // 要素が画面の下から 500px の範囲に入ったらスライドイン
-      if (rect.top < windowHeight - 500) {
+      if (rect.top < windowHeight - 100) {
         element.classList.add("active");
         }
       });
