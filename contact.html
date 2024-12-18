@@ -51,7 +51,7 @@
   </header>
   <main>
     <section id="form-main">
-        <form id="form" action="confirm.html" method="POST">
+        <form id="form" action="confirmation.php" method="POST">
             <h2>お問い合わせ</h2>
             <p>どのような些細なご質問でも、お仕事のご依頼でも、どうぞお気軽にお問い合わせください。
                 <br>心を込めて丁寧に対応させていただきます。</p>
@@ -68,7 +68,7 @@
                     <label for="furigana" class="contact-label">フリガナ<span class="contact-span">必須</span></label>
                 </div>
                 <div>
-                    <input id="furigana" class="contact-textbox" type="text" name="hurigana" autocomplete="off" placeholder="入力してください" required>
+                    <input id="furigana" class="contact-textbox" type="text" name="furigana" autocomplete="off" placeholder="入力してください" required>
                 </div>
             </div>
             <div>
@@ -87,7 +87,7 @@
                     <textarea id="message" class="contact-textarea " placeholder="入力してください" name="message" required></textarea>
                 </div>
             </div>
-            <button class="submitButton" disabled></button>
+            <button class="submitButton"></button> <!--disabled属性の削除-->
         </form>
             <img src="image/contact/working-woman.png" class="working-woman-img" alt="仕事をする女性">
     </section>
