@@ -51,99 +51,106 @@
   </header>
   <main>
   <?php
-require 'vendor/autoload.php'; // 必要なライブラリを読み込み
+    require 'vendor/autoload.php'; // 必要なライブラリを読み込み
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\Exception;
 
-// POSTデータがあるか確認
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $errors = [];
-    $name = htmlspecialchars($_POST['name'] ?? '', ENT_QUOTES, 'UTF-8');
-    $furigana = htmlspecialchars($_POST['furigana'] ?? '', ENT_QUOTES, 'UTF-8');
-    $email = htmlspecialchars($_POST['email'] ?? '', ENT_QUOTES, 'UTF-8');
-    $message = htmlspecialchars($_POST['message'] ?? '', ENT_QUOTES, 'UTF-8');
+    // POSTデータがあるか確認
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $errors = [];
+        $name = htmlspecialchars($_POST['name'] ?? '', ENT_QUOTES, 'UTF-8');
+        $furigana = htmlspecialchars($_POST['furigana'] ?? '', ENT_QUOTES, 'UTF-8');
+        $email = htmlspecialchars($_POST['email'] ?? '', ENT_QUOTES, 'UTF-8');
+        $message = htmlspecialchars($_POST['message'] ?? '', ENT_QUOTES, 'UTF-8');
 
-    // バリデーション
-    if (empty($name)) {
-        $errors[] = "お名前を入力してください。";
-    }
-
-    if (empty($furigana)) {
-        $errors[] = "フリガナを入力してください。";
-    } elseif (!preg_match('/^[ァ-ンヴー\s　]+$/u', $furigana)) {
-        $errors[] = "フリガナは全角カタカナで入力してください。";
-    }
-
-    if (empty($email)) {
-        $errors[] = "メールアドレスを入力してください。";
-    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors[] = "有効なメールアドレスを入力してください。";
-    }
-
-    if (empty($message)) {
-        $errors[] = "お問い合わせ内容を入力してください。";
-    }
-
-    // エラーがある場合、エラーメッセージを表示
-    if (!empty($errors)) {
-        echo "<div style='color: red; margin: 20px;'>";
-        foreach ($errors as $error) {
-            echo "<p>" . $error . "</p>";
+        // バリデーション
+        if (empty($name)) {
+            $errors[] = "お名前を入力してください。";
         }
-        echo "</div>";
-    } else {
-        // 確認ページ表示
-        if (isset($_POST['submit']) && $_POST['submit'] === 'send') {
-            try {
-                $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-                $dotenv->load();
 
-                $mail = new PHPMailer(true);
-                $mail->isSMTP();
-                $mail->Host = $_ENV['SMTP_HOST'];
-                $mail->SMTPAuth = true;
-                $mail->Username = $_ENV['SMTP_USER'];
-                $mail->Password = $_ENV['SMTP_PASS'];
-                $mail->SMTPSecure = $_ENV['SMTP_SECURE'];
-                $mail->Port = $_ENV['SMTP_PORT'];
+        if (empty($furigana)) {
+            $errors[] = "フリガナを入力してください。";
+        } elseif (!preg_match('/^[ァ-ンヴー\s　]+$/u', $furigana)) {
+            $errors[] = "フリガナは全角カタカナで入力してください。";
+        }
 
-                $mail->setFrom($_ENV['SMTP_USER'], '中山友歩のポートフォリオ');
-                $mail->addAddress('info@yuhonakayama.com');
+        if (empty($email)) {
+            $errors[] = "メールアドレスを入力してください。";
+        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errors[] = "有効なメールアドレスを入力してください。";
+        }
 
-                $mail->isHTML(true);
-                $mail->Subject = "お問い合わせ";
-                $mail->Body = "
-                    <p>お名前: {$name}</p>
-                    <p>ふりがな: {$furigana}</p>
-                    <p>メールアドレス: {$email}</p>
-                    <p>お問い合わせ内容:</p>
-                    <p>{$message}</p>
-                ";
-                $mail->CharSet = 'UTF-8';
+        if (empty($message)) {
+            $errors[] = "お問い合わせ内容を入力してください。";
+        }
 
-                if ($mail->send()) {
-                    echo "<p style='height: 100vh; width: 80vw; margin-top: 15%; text-align: center;'>
-                                お問い合わせありがとうございます。<br>
-                                <br>
-                                内容を確認の上、通常2～3営業日以内にご返信させていただきます。<br>
-                                <br>
-                                万が一、返信がない場合は迷惑メールフォルダをご確認いただくか、再度お問い合わせください。</p>";
-                } else {
-                    echo "<p style='height: 100vh; width: 80vw; margin-top: 15%; text-align: center;'>
-                                メールの送信に失敗しました。<br>
-                                <br>
-                                恐れ入りますが、もう一度お試しいただくか、しばらく時間を置いて再送信してください。</p>";
-                }
-            } catch (Exception $e) {
-                echo "<p style='height: 100vh; width: 80vw; margin-top: 15%; text-align: center;'>
-                                エラーが発生しました<br>
-                                <br>
-                                お手数ですが、もう一度お試しいただくか、時間を置いて再度お試しください。: " . $e->getMessage() . "</p>";
+        // エラーがある場合、エラーメッセージを表示
+        if (!empty($errors)) {
+            echo "<div style='color: red; margin: 20px;'>";
+            foreach ($errors as $error) {
+                echo "<p>" . $error . "</p>";
             }
+            echo "</div>";
+            echo "<form method='POST'>";
+            echo "<input type='hidden' name='name' value='{$name}'>";
+            echo "<input type='hidden' name='furigana' value='{$furigana}'>";
+            echo "<input type='hidden' name='email' value='{$email}'>";
+            echo "<input type='hidden' name='message' value='{$message}'>";
+            echo "<button type='button' onclick='history.back();' style='margin: 10px;'>修正する</button>";
+            echo "</form>";
         } else {
             // 確認ページ表示
-            ?>
+            if (isset($_POST['submit']) && $_POST['submit'] === 'send') {
+                try {
+                    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+                    $dotenv->load();
+
+                    $mail = new PHPMailer(true);
+                    $mail->isSMTP();
+                    $mail->Host = $_ENV['SMTP_HOST'];
+                    $mail->SMTPAuth = true;
+                    $mail->Username = $_ENV['SMTP_USER'];
+                    $mail->Password = $_ENV['SMTP_PASS'];
+                    $mail->SMTPSecure = $_ENV['SMTP_SECURE'];
+                    $mail->Port = $_ENV['SMTP_PORT'];
+
+                    $mail->setFrom($_ENV['SMTP_USER'], '中山友歩のポートフォリオ');
+                    $mail->addAddress('info@yuhonakayama.com');
+
+                    $mail->isHTML(true);
+                    $mail->Subject = "お問い合わせ";
+                    $mail->Body = "
+                        <p>お名前: {$name}</p>
+                        <p>ふりがな: {$furigana}</p>
+                        <p>メールアドレス: {$email}</p>
+                        <p>お問い合わせ内容:</p>
+                        <p>{$message}</p>
+                    ";
+                    $mail->CharSet = 'UTF-8';
+
+                    if ($mail->send()) {
+                        echo "<p style='height: 100vh; width: 80vw; margin-top: 15%; text-align: center;'>
+                                    お問い合わせありがとうございます。<br>
+                                    <br>
+                                    内容を確認の上、通常2～3営業日以内にご返信させていただきます。<br>
+                                    <br>
+                                    万が一、返信がない場合は迷惑メールフォルダをご確認いただくか、再度お問い合わせください。</p>";
+                    } else {
+                        echo "<p style='height: 100vh; width: 80vw; margin-top: 15%; text-align: center;'>
+                                    メールの送信に失敗しました。<br>
+                                    <br>
+                                    恐れ入りますが、もう一度お試しいただくか、しばらく時間を置いて再送信してください。</p>";
+                    }
+                } catch (Exception $e) {
+                    echo "<p style='height: 100vh; width: 80vw; margin-top: 15%; text-align: center;'>
+                                    エラーが発生しました<br>
+                                    <br>
+                                    : " . $e->getMessage() . "</p>";
+                }
+            } else {
+                // 確認ページ表示
+    ?>
             <section id="confirmation" style="height: 100vh; width: 60vw; margin-top: 10%;">
                 <h2 style="font-size: 2rem">以下の内容でよろしいでしょうか？</h2>
                 <br>
