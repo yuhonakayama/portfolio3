@@ -87,7 +87,7 @@
 
         // エラーがある場合、エラーメッセージを表示
         if (!empty($errors)) {
-            echo "<div style='color: red; margin: 20px;'>";
+            echo "<div style='color: red; margin-top: 15%;'>";
             foreach ($errors as $error) {
                 echo "<p>" . $error . "</p>";
             }
@@ -97,7 +97,7 @@
             echo "<input type='hidden' name='furigana' value='{$furigana}'>";
             echo "<input type='hidden' name='email' value='{$email}'>";
             echo "<input type='hidden' name='message' value='{$message}'>";
-            echo "<button type='button' onclick='history.back();' style='margin: 10px;'>修正する</button>";
+            echo "<button type='button' onclick='history.back();' style='margin: 50px;'>修正する</button>";
             echo "</form>";
         } else {
             // 確認ページ表示
@@ -151,7 +151,7 @@
             } else {
                 // 確認ページ表示
     ?>
-            <section id="confirmation" style="height: 100vh; width: 60vw; margin-top: 10%;">
+            <section id="confirmation" style="height: 100vh; width: 600px; margin-top: 10%;">
                 <h2 style="font-size: 2rem">以下の内容でよろしいでしょうか？</h2>
                 <br>
                 <p>お名前：<?php echo $name; ?></p>
