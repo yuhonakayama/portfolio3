@@ -73,7 +73,7 @@ $(function () {
       const rect = element.getBoundingClientRect();
       const windowHeight = window.innerHeight;
     
-      // 要素が画面の下から 500px の範囲に入ったらスライドイン
+      // 要素が画面の下から 100px の範囲に入ったらスライドイン
       if (rect.top < windowHeight - 100) {
         element.classList.add("active");
       }
